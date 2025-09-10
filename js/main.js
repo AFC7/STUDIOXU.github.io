@@ -26,4 +26,43 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
+// ======== GALERÍA Y LIGHTBOX ========
+const galleryItems = document.querySelectorAll('.galeria-item img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const closeBtn = document.querySelector('.close-btn');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
+let currentIndex;
+
+// Verifica que todos los elementos necesarios existan
+if (galleryItems.length > 0 && lightbox && lightboxImg && closeBtn && prevBtn && nextBtn) {
+    
+    // 1. Añade un "escuchador" de clics a cada imagen de la galería
+    galleryItems.forEach((item, index) => {
+        item.addEventListener('click', function() {
+            lightbox.style.display = 'flex'; // Muestra el lightbox
+            lightboxImg.src = this.src;      // Pone la imagen grande
+            currentIndex = index;            // Guarda la posición de la imagen actual
+        });
+    });
+
+    // 2. Añade la función al botón de cerrar
+    closeBtn.addEventListener('click', function() {
+        lightbox.style.display = 'none'; // Oculta el lightbox
+    });
+
+    // 3. Añade la función a la flecha "anterior"
+    prevBtn.addEventListener('click', function() {
+        currentIndex = (currentIndex === 0) ? galleryItems.length - 1 : currentIndex - 1;
+        lightboxImg.src = galleryItems[currentIndex].src;
+    });
+
+    // 4. Añade la función a la flecha "siguiente"
+    nextBtn.addEventListener('click', function() {
+        currentIndex = (currentIndex === galleryItems.length - 1) ? 0 : currentIndex + 1;
+        lightboxImg.src = galleryItems[currentIndex].src;
+    });
+}    
 });

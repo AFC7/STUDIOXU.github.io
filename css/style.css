@@ -39,9 +39,37 @@ main h2 { font-size: 2.8rem; color: var(--color-principal); text-align: center; 
 main h2::after { content: ''; position: absolute; left: 50%; transform: translateX(-50%); bottom: 0; width: 80px; height: 3px; background-color: var(--color-principal); border-radius: 5px; }
 
 /* ======== SECCIÓN "LO QUE SOMOS" ======== */
-.somos-layout { display: flex; align-items: center; gap: 40px; }
-.somos-texto { flex: 1; }
-#somos p { font-size: 1.1rem; max-width: 600px; }
+/* ======== SECCIÓN "LO QUE SOMOS" (MEJORADA) ======== */
+.somos-layout {
+    display: flex;
+    flex-direction: column; /* En móvil, se apilan (imagen arriba, texto abajo) */
+    align-items: center;
+    gap: 40px;
+}
+
+.somos-imagen {
+    flex-basis: 40%; /* Le da un tamaño base a la columna de la imagen */
+    max-width: 400px;
+}
+
+.somos-imagen img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.somos-texto {
+    flex-basis: 60%; /* Le da un tamaño base a la columna del texto */
+    text-align: left; /* Alinea el texto a la izquierda en escritorio */
+}
+
+/* --- Media Query para Escritorio --- */
+@media (min-width: 768px) {
+    .somos-layout {
+        flex-direction: row; /* En pantallas grandes, se ponen lado a lado */
+    }
+}
 
 /* ======== SECCIÓN DE SERVICIOS (Grid Responsivo) ======== */
 .servicios-grid { display: grid; grid-template-columns: 1fr; gap: 30px; max-width: 900px; margin: 0 auto; }
@@ -172,6 +200,36 @@ footer { background-color: var(--color-texto); color: white; text-align: center;
     transform: translateY(0px) scale(0.98); /* Simula el efecto de ser presionado */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
+
+/* ======== SECCIÓN NOVEDADES Y OFERTAS ======== */
+#novedades {
+    background-color: var(--color-suave); /* Fondo gris claro para alternar */
+}
+
+.novedades-card {
+    background-color: var(--color-fondo); /* Tarjeta blanca para que resalte */
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+    padding: 40px;
+    max-width: 800px; /* Limita el ancho para que sea fácil de leer */
+    margin: 0 auto; /* Centra la tarjeta */
+    text-align: center;
+    border-left: 5px solid var(--color-principal); /* Detalle de color en el borde izquierdo */
+}
+
+.novedades-card h3 {
+    font-family: var(--fuente-titulos);
+    color: var(--color-principal);
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.novedades-card p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
 /* ======== SECCIÓN DEL MAPA DE UBICACIÓN ======== */
 #ubicacion {
     background-color: var(--color-fondo); /* Fondo blanco */

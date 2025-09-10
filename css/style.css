@@ -28,7 +28,7 @@ nav { display: flex; justify-content: space-between; align-items: center; }
 main { padding-top: 82px; }
 
 /* ======== SECCIÓN INICIO (HERO) ======== */
-#inicio { background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../images/hero-background3.jpg') center/cover no-repeat; height: 90vh; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
+#inicio { background: linear-gradient(rgba(248, 120, 197, 0.4), rgba(190, 92, 151, 0.4)), url('../images/hero-background3.jpg') center/cover no-repeat; height: 90vh; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
 #inicio h1 { font-size: 4rem; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); margin-bottom: 15px; line-height: 1.2; }
 #inicio p { font-size: 1.2rem; font-weight: bold; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); }
 

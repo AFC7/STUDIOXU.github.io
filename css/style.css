@@ -79,7 +79,7 @@ main {
 
 /* ======== SECCIÓN INICIO (HERO) ======== */
 #inicio {
-    background: linear-gradient(rgba(248, 120, 197, 0.4), rgba(190, 92, 151, 0.4)), url('../images/hero-background3.jpg') center/cover no-repeat;
+    background: linear-gradient(rgba(248, 120, 197, 0.4), rgba(190, 92, 151, 0.4)), url('../images/hero-background.webp') center/cover no-repeat;
     height: 90vh;
     color: white;
     display: flex;

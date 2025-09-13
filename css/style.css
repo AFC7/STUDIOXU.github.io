@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'MiFuente';
+  src: url('mi-fuente.woff2');
+  font-display: swap; /* <-- Añadir esta línea */
+}
+
 /* ======== VARIABLES Y ESTILOS GENERALES ======== */
 :root {
     --color-principal: #ED7BA9;

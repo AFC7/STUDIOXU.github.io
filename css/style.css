@@ -479,92 +479,127 @@ main h2::after {
     transform: scale(1.05);
 }
 
+/* ======== PIE DE PÁGINA PROFESIONAL ======== */
 footer {
-    background-color: var(--color-texto);
+    background-color: var(--color-texto); /* Fondo oscuro */
+    color: #a7a7a7; /* Texto gris claro */
+    padding: 60px 0 20px 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+.footer-col .footer-logo {
+    max-width: 100px;
+    margin-bottom: 20px;
+}
+
+.footer-col h4 {
+    color: var(--color-principal);
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--color-principal-oscuro);
+}
+
+.footer-col p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-col ul li i {
+    margin-right: 10px;
+    color: var(--color-principal);
+}
+
+.footer-col ul li a {
+    color: #a7a7a7;
+    text-decoration: none;
+    transition: color 0.3s, padding-left 0.3s;
+}
+
+.footer-col ul li a:hover {
     color: white;
+    padding-left: 5px;
+}
+
+.footer-social {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.footer-social a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #555;
+    border-radius: 50%;
+    color: #a7a7a7;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.footer-social a:hover {
+    color: white;
+    background-color: var(--color-principal);
+    border-color: var(--color-principal);
+}
+
+.footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    border-top: 1px solid #444;
+    padding-top: 20px;
     text-align: center;
-    padding: 20px 0;
     font-size: 0.9rem;
 }
 
-.whatsapp-flotante {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 40px;
-    right: 40px;
-    background-color: var(--color-principal);
-    color: #FFF;
-    border-radius: 50px;
-    text-align: center;
-    font-size: 30px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    z-index: 100;
-    transition: background-color 0.3s, transform 0.3s;
+.developer-credit {
+    font-size: 0.8rem;
+    color: #888;
 }
 
-.whatsapp-flotante:hover {
-    background-color: var(--color-principal-oscuro);
-    transform: scale(1.1);
+.developer-credit a {
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
-.icono-whatsapp {
-    margin-top: 14px;
-}
-
-.modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1100;
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-overlay.visible {
-    display: flex;
-}
-
-.modal-content {
-    position: relative;
-    background-color: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-    width: 90%;
-    max-width: 400px;
-}
-
-.modal-content img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 5px;
-}
-
-.modal-close-btn {
-    position: absolute;
-    top: -15px;
-    right: -15px;
-    width: 35px;
-    height: 35px;
-    background-color: var(--color-principal);
+.developer-credit a:hover {
     color: white;
-    border-radius: 50%;
-    font-size: 24px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    border: 2px solid white;
 }
-
 /* ======== MENÚ MÓVIL Y ESTILOS RESPONSIVE GLOBALES ======== */
 .menu-hamburguesa {
     display: flex;

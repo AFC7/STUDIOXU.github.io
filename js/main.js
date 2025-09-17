@@ -2,10 +2,12 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     // ======== INICIALIZACIÓN DE ANIMACIONES AL SCROLL ========
-    AOS.init({
-        duration: 1000, // Duración de la animación en milisegundos
-        once: true,     // La animación solo ocurre una vez
-    });
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 1000, // Duración de la animación en milisegundos
+            once: true,     // La animación solo ocurre una vez
+        });
+    }
 
     // ======== MENÚ MÓVIL (HAMBURGUESA) ========
     const menuToggle = document.getElementById('menu-toggle');
@@ -62,54 +64,41 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ======== LÓGICA DE FILTROS DE GALERÍA ========
     const filtroBotones = document.querySelectorAll('.filtro-btn');
-    const galeriaItems = document.querySelectorAll('.galeria-item');
+    const galeriaGridItems = document.querySelectorAll('.galeria-item');
 
-    if (filtroBotones.length > 0 && galeriaItems.length > 0) {
+    if (filtroBotones.length > 0 && galeriaGridItems.length > 0) {
         filtroBotones.forEach(boton => {
             boton.addEventListener('click', () => {
-                // Marca el botón activo
                 filtroBotones.forEach(btn => btn.classList.remove('active'));
                 boton.classList.add('active');
-
                 const filtro = boton.getAttribute('data-filter');
-
-                // Muestra u oculta los items de la galería
-                galeriaItems.forEach(item => {
+                galeriaGridItems.forEach(item => {
                     const categoria = item.getAttribute('data-category');
-                    
                     if (filtro === 'all' || filtro === categoria) {
-                        item.style.display = 'block'; // Muestra el item
+                        item.style.display = 'block';
                     } else {
-                        item.style.display = 'none'; // Oculta el item
+                        item.style.display = 'none';
                     }
                 });
             });
         });
     }
 
-}); // Fin de DOMContentLoaded
-
-// ======== LÓGICA DEL MODAL DE PROMOCIÓN (APARECE SIEMPRE) ========
-window.addEventListener('load', function() {
+    // ======== LÓGICA DEL MODAL DE PROMOCIÓN ========
     const promoModal = document.getElementById('promo-modal');
     const closeModalBtn = document.getElementById('close-modal');
 
-    // Verifica que el modal exista en la página antes de continuar
     if (promoModal && closeModalBtn) {
-        // Muestra el modal siempre, después de 2 segundos
+        // Muestra el modal después de 2 segundos de cargar la página
         setTimeout(function() {
             promoModal.classList.add('visible');
         }, 2000);
 
-        // Función para cerrar el modal
         function closeModal() {
             promoModal.classList.remove('visible');
         }
 
-        // Cierra el modal al hacer clic en el botón 'X'
         closeModalBtn.addEventListener('click', closeModal);
-
-        // Cierra el modal al hacer clic en el fondo oscuro
         promoModal.addEventListener('click', function(event) {
             if (event.target === promoModal) {
                 closeModal();
